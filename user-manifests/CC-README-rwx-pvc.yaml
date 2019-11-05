@@ -1,0 +1,7 @@
+
+But when the PVC used by these deployments is RWX (ReadWriteMany) mode, both
+pods come up fine and both are able to mount the same volume.  Each writes to
+its own path on that volume and the results are visible to containers in all
+pods that use that PVC.
+
+

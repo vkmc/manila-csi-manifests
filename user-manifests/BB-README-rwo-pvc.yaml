@@ -1,0 +1,5 @@
+
+When the PVC used by these deployments is RWO (ReadWriteOnce) mode, only one
+of the deployments can succeed in mounting the volume that its manifest requires.
+
+

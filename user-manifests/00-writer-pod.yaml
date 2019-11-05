@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: writer-one
+spec:
+  restartPolicy: Never
+  containers:
+   - image: gcr.io/google_containers/busybox
+     command:
+       - "/bin/sh"
+       - "-c"
+       - "while true; do echo $(date) >> /mnt/test/$(hostname); sleep 10; done"
+     name: busybox
+     volumeMounts:
+       - name: mypvc
+         mountPath: /mnt/test
+  volumes:
+    - name: mypvc
+      persistentVolumeClaim:
+        claimName: myclaim
+        readOnly: false
